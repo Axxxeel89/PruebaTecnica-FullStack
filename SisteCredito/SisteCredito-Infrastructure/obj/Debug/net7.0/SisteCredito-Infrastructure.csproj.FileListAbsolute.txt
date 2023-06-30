@@ -1,0 +1,17 @@
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Infrastructure.deps.json
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Infrastructure.runtimeconfig.json
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Infrastructure.dll
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Infrastructure.pdb
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Core.dll
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Core.pdb
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.csproj.AssemblyReference.cache
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.AssemblyInfoInputs.cache
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.AssemblyInfo.cs
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.csproj.CoreCompileInputs.cache
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.csproj.CopyComplete
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.dll
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\refint\SisteCredito-Infrastructure.dll
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.pdb
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.genruntimeconfig.cache
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\ref\SisteCredito-Infrastructure.dll
