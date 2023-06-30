@@ -15,3 +15,20 @@ D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructur
 D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.pdb
 D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.genruntimeconfig.cache
 D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\ref\SisteCredito-Infrastructure.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Infrastructure.deps.json
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Infrastructure.runtimeconfig.json
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Infrastructure.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Infrastructure.pdb
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Core.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\bin\Debug\net7.0\SisteCredito-Core.pdb
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.csproj.AssemblyReference.cache
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.AssemblyInfoInputs.cache
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.AssemblyInfo.cs
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.csproj.CoreCompileInputs.cache
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.csproj.CopyComplete
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\refint\SisteCredito-Infrastructure.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.pdb
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\SisteCredito-Infrastructure.genruntimeconfig.cache
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Infrastructure\obj\Debug\net7.0\ref\SisteCredito-Infrastructure.dll

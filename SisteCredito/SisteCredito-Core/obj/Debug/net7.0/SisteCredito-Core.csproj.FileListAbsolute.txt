@@ -12,3 +12,17 @@ D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debu
 D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.pdb
 D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.genruntimeconfig.cache
 D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\ref\SisteCredito-Core.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\bin\Debug\net7.0\SisteCredito-Core.deps.json
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\bin\Debug\net7.0\SisteCredito-Core.runtimeconfig.json
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\bin\Debug\net7.0\SisteCredito-Core.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\bin\Debug\net7.0\SisteCredito-Core.pdb
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.csproj.AssemblyReference.cache
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.AssemblyInfoInputs.cache
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.AssemblyInfo.cs
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.csproj.CoreCompileInputs.cache
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\refint\SisteCredito-Core.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.pdb
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\SisteCredito-Core.genruntimeconfig.cache
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-Core\obj\Debug\net7.0\ref\SisteCredito-Core.dll

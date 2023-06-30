@@ -17,9 +17,9 @@ public class LoadDataBase
             await roleManager.CreateAsync(new IdentityRole("LiderTecnico"));
         }
 
-        if (!await roleManager.RoleExistsAsync("TalentoHumano"))
+        if (!await roleManager.RoleExistsAsync("Tesoreria"))
         {
-            await roleManager.CreateAsync(new IdentityRole("TalentoHumano"));
+            await roleManager.CreateAsync(new IdentityRole("Tesoreria"));
         }
     }
 
@@ -47,7 +47,7 @@ public class LoadDataBase
             var usuario3 = new Usuarios{
                 Nombres = "Vivian",
                 Apellidos = "Ochoa",
-                Rol = "TalentoHumano"
+                Rol = "Tesoreria"
             };
 
             await usuarioManager.CreateAsync(usuario3, "Siste2023*");
@@ -104,7 +104,7 @@ public class LoadDataBase
 
                 new Areas{
                     Id = 4,
-                    Nombre = "Finanzas",
+                    Nombre = "Tesoreria",
                 }
             );
                 
@@ -120,7 +120,7 @@ public class LoadDataBase
         await userManager.AddToRoleAsync(usuario2!, "LiderTecnico");
 
         var usuario3 = await userManager.FindByNameAsync("Vivian");
-        await userManager.AddToRoleAsync(usuario3!, "TalentoHumano");
+        await userManager.AddToRoleAsync(usuario3!, "Tesoreria");
 
         var usuario4 = await userManager.FindByNameAsync("Paulina");
         await userManager.AddToRoleAsync(usuario4!, "Empleado");

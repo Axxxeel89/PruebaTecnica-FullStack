@@ -10,11 +10,12 @@ public class ApplicationDbContext : IdentityDbContext<Usuarios>
     {
 
     }
-
+    
+    public DbSet<Usuarios> Usuarios { get; set; }
     public DbSet<Empleados> Empleados { get; set; }
     public DbSet<Lideres> Lideres { get; set; }
     public DbSet<Areas> Areas { get; set; }
     public DbSet<Generos> Generos { get; set; }
-    public DbSet<Usuarios> Usuarios { get; set; }
+    public DbSet<ReporteHorasExtra> reporteHorasExtras { get; set; }
 
 }

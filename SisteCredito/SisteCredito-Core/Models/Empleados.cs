@@ -17,6 +17,7 @@ public class Empleados
     public DateTime FechaNacimiento { get; set; }
     [Required]
     public DateTime FechaIngreso { get; set; }
+    public DateTime FechaRetiro { get; set; } 
     
     [Range(1, int.MaxValue, ErrorMessage = "El valor debe estar en el rango válido")]
     public int GeneroId { get; set; }
@@ -24,6 +25,7 @@ public class Empleados
     [Required]
     [StringLength(100, ErrorMessage ="El valor maximo es 100 caracteres")]
     public string Cargo { get; set; } = String.Empty;
+    public bool? UsuarioHabilitado { get; set; }
     public string Mail { get; set; } = String.Empty;
     public int AreasId { get; set; }
     public int LiderId { get; set; }
