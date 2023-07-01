@@ -178,3 +178,6 @@ C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\obj\Debug\net7.0\refint\S
 C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\obj\Debug\net7.0\SisteCredito-API.pdb
 C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\obj\Debug\net7.0\SisteCredito-API.genruntimeconfig.cache
 C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\obj\Debug\net7.0\ref\SisteCredito-API.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

@@ -16,6 +16,4 @@ public class UsuarioResponseDto
 
     public string? Email{get; set;}
 
-    public string? Telefono{get; set;}
-
 }

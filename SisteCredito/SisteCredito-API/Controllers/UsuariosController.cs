@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SisteCredito_Core.Dtos.UsuariosDto;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioUsuarios;
@@ -20,6 +21,7 @@ namespace SisteCredito_API.Controllers
         }
 
         [HttpPost("Login")]
+        [AllowAnonymous]
         public async Task<ActionResult<UsuarioResponseDto>> Login ([FromBody] UsuarioLoginDto request)
         {
             return await _userRepo.LoginUser(request);

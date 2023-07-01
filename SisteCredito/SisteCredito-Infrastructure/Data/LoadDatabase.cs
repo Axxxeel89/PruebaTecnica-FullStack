@@ -31,7 +31,9 @@ public class LoadDataBase
             var usuario = new Usuarios{
                 Nombres = "John",
                 Apellidos = "Rios",
-                Rol = "Gerente"
+                Rol = "Gerente",
+                Email = "john.rios@sisteCredito.com",
+                UserName = "Alex.Rios",
             };
 
             await usuarioManager.CreateAsync(usuario, "Siste2023*");
@@ -39,7 +41,9 @@ public class LoadDataBase
             var usuario2 = new Usuarios{
                 Nombres = "Santiago",
                 Apellidos = "Rios",
-                Rol = "LiderTecnico"
+                Rol = "LiderTecnico",
+                Email = "santiago.rios@sisteCredito.com",
+                UserName = "Santiago.Rios",
             };
 
             await usuarioManager.CreateAsync(usuario2, "Siste2023*");
@@ -47,7 +51,9 @@ public class LoadDataBase
             var usuario3 = new Usuarios{
                 Nombres = "Vivian",
                 Apellidos = "Ochoa",
-                Rol = "Tesoreria"
+                Rol = "Tesoreria",
+                Email = "vivian.ochoa@sisteCredito.com",
+                UserName = "vivian.ochoa",
             };
 
             await usuarioManager.CreateAsync(usuario3, "Siste2023*");
@@ -55,10 +61,14 @@ public class LoadDataBase
             var usuario4 = new Usuarios{
                 Nombres = "Paulina",
                 Apellidos = "David",
-                Rol = "Empleado"
+                Rol = "Empleado",
+                Email = "paulina.david@sisteCredito.com",
+                UserName = "paulina.david",
             };
 
             await usuarioManager.CreateAsync(usuario4, "Siste2023*");
+
+            await dbContext.SaveChangesAsync();
         }
 
         
@@ -66,17 +76,14 @@ public class LoadDataBase
         {
             dbContext.Generos.AddRange(
                 new Generos{
-                    Id = 1,
                     Nombre = "Masculino",
                 },
 
                 new Generos{
-                    Id = 2,
                     Nombre = "Femenino",
                 },
 
                 new Generos{
-                    Id = 3,
                     Nombre = "Otros",
                 }    
 
@@ -88,22 +95,18 @@ public class LoadDataBase
         {
             dbContext.Areas.AddRange(
                 new Areas{
-                    Id = 1,
                     Nombre = "Recursos Humanos",
                 },
 
                 new Areas{
-                    Id = 2,
                     Nombre = "Tecnologia",
                 },
 
                 new Areas{
-                    Id = 3,
                     Nombre = "Gerencia",
                 },
 
                 new Areas{
-                    Id = 4,
                     Nombre = "Tesoreria",
                 }
             );

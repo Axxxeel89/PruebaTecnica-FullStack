@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using SisteCredito_API.AutoMapper;
 using SisteCredito_Core.Models;
 using SisteCredito_Core.Token;
 using SisteCredito_Infrastructure.Data;
@@ -25,7 +26,6 @@ builder.Services.AddControllers(options => {
     options.Filters.Add(new AuthorizeFilter(policy));
 });
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -45,9 +45,13 @@ builder.Services.AddScoped<IRepositoryUsuarios, RepositoryUsuarios>();
 var builderSecurity = builder.Services.AddIdentityCore<Usuarios>();
 var identityBuilder = new IdentityBuilder(builderSecurity.UserType, builder.Services);
 
+//Contenedor de Mapper
+builder.Services.AddAutoMapper(typeof(MappingConfig));
+
 //--> Agregamos el esquema que se va a encargar de agregar las tablas a la migracion
 identityBuilder.AddEntityFrameworkStores<ApplicationDbContext>();
 identityBuilder.AddSignInManager<SignInManager<Usuarios>>();
+builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
 //--> Va agregar una referencia para saber la hora en la que se esta creando estos usuarios.
 builder.Services.AddSingleton<ISystemClock, SystemClock>();

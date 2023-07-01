@@ -2,7 +2,6 @@ namespace SisteCredito_Core.Dtos.EmpleadosDto;
 
 public class EmpleadosRequestDto
 {
-    public string Id { get; set; } = String.Empty;
     public string Nombres { get; set; } = String.Empty;
     public string Apellidos { get; set; } = String.Empty;
     public string FechaNacimiento { get; set; } = String.Empty;

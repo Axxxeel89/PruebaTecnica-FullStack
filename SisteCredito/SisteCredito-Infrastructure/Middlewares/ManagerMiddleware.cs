@@ -29,7 +29,7 @@ public class ManagerMiddleware
     public async Task ManagerExceptionAsync(HttpContext context, Exception ex, ILogger<ManagerMiddleware> logger)
     {
 
-        object errores = null;
+        object? errores = null;
 
         switch(ex){
             case MiddlewareException me:

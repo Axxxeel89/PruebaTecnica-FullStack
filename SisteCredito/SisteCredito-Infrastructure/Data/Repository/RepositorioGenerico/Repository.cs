@@ -16,6 +16,7 @@ public class Repository<T> : IRepository<T> where T : class
     public async Task Crear(T entidad)
     {
         await dbSet.AddAsync(entidad);
+        await Grabar();
     }
 
     public async Task Grabar()
