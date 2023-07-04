@@ -1,0 +1,38 @@
+.carrusel{
+  height: 80vh!important;
+
+  &__img{
+    height: 80vh !important;
+    object-fit: cover;
+  }
+
+  &__title{
+    font-size: 2.7rem;
+    margin-bottom: 25px;
+    position: relative;
+    z-index: 4;
+    filter: drop-shadow(1px 1px 4px rgba(0, 0, 123, 0.516));
+  }
+
+  &__text{
+    font-size: 1.8rem;
+    position: relative;
+    z-index: 4;
+    filter: drop-shadow(1px 1px 4px rgba(152, 152, 152, 0.671));
+  }
+
+  &__buttons{
+    position: absolute;
+    z-index: 5;
+  }
+
+  &__background{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.451);
+    position: absolute;
+    z-index: 3;
+    top: 0;
+    right: 0;
+  }
+}

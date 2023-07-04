@@ -1,0 +1,17 @@
+<div>
+  <header>
+    <img src="../../../../assets/img/logo-svg.svg">
+    <a class="volver" routerLink="/home"><i class="fa-solid fa-house"></i> Regresar</a>
+  </header>
+  <nav>
+    <ul>
+      <li><a routerLink="/cms/employee">Empleados</a></li>
+      <li><a routerLink="/cms/leader">Lideres</a></li>
+      <li><a routerLink="/cms/register">Registro</a></li>
+    </ul>
+      <h5>{{UsuarioLogueado | titlecase}}</h5>
+  </nav>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

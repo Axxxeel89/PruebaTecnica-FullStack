@@ -1,0 +1,28 @@
+<div class="contenedor">
+  <div class="login">
+    <img class="login__img" src="../../../../assets/img/logo-svg.svg" alt="">
+    <form [formGroup]="form" (ngSubmit)="Login($event)" class="login__form" >
+      <div class="login__form2">
+        <mat-form-field appearance="outline">
+          <mat-label>E-Mail</mat-label>
+          <input matInput placeholder="Escribe tu Email" formControlName="email" type="email" autocomplete="off">
+          <mat-icon matSuffix>mail</mat-icon>
+          <mat-hint *ngIf="emailField?.touched && emailField?.hasError('required')">El Email es requerido</mat-hint>
+          <mat-hint *ngIf="emailField?.touched && emailField?.hasError('email')">Debes agregar un email valido</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput placeholder="Escribe tu Contraseña" formControlName="password"  type="password">
+          <mat-icon matSuffix>password</mat-icon>
+          <mat-hint *ngIf="passwordField?.touched && passwordField?.hasError('required')">La contraseña es requerida</mat-hint>
+        </mat-form-field>
+
+      </div>
+
+      <h5 class="login__error" *ngIf="loginFail">El usuario o la contraseña no son correctas</h5>
+
+      <button class="login__cta" mat-raised-button color="primary" type="submit">Ingresar</button>
+    </form>
+  </div>
+</div>

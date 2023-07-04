@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SisteCredito_Core.Dtos.LideresDto;
 using SisteCredito_Core.Models;
+using SisteCredito_Infrastructure.Data;
+using SisteCredito_Infrastructure.Data.Repository.RepositorioAreas;
+using SisteCredito_Infrastructure.Data.Repository.RepositorioGeneros;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioLideres;
 
 namespace SisteCredito_API.Controllers
@@ -16,11 +21,23 @@ namespace SisteCredito_API.Controllers
     {
         private readonly IRepositoryLideres _lideresRepo;
         private readonly IMapper _mapper;
+        private readonly IRepositoryGeneros _generoRepo;
+        private readonly IRepositoryAreas _areasRepo;
+        private ApplicationDbContext _db;
 
-        public LideresController(IRepositoryLideres lideresRepo, IMapper mapper)
+        public LideresController(
+            IRepositoryLideres lideresRepo, 
+            IMapper mapper, 
+            ApplicationDbContext db,
+            IRepositoryGeneros generoRepo,
+            IRepositoryAreas areasRepo
+            )
         {
             _lideresRepo = lideresRepo;
             _mapper = mapper;
+            _db= db;
+            _generoRepo = generoRepo;
+            _areasRepo = areasRepo;
         }
 
         [HttpGet]
@@ -29,6 +46,9 @@ namespace SisteCredito_API.Controllers
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> ListarLideres ()
         {
+        
+            var lideres = _db.Lideres
+                            .Include(c => c.Areas).ToList();
             return Ok(await _lideresRepo.ObtenerTodos());
         }
 
@@ -133,8 +153,6 @@ namespace SisteCredito_API.Controllers
 
             return NoContent();
         }           
-
-
 
 
     }

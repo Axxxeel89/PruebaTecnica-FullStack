@@ -1,0 +1,80 @@
+<div class="employee">
+  <div class="employee__cardTitle">
+    <h2 class="employee__title">Lista de Empleados</h2>
+    <a mat-raised-button color="primary" routerLink="/cms/employee-form"><mat-icon fontIcon="add"></mat-icon> Crear Nuevo</a>
+  </div>
+
+  <mat-form-field>
+    <mat-label>Buscar</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Palabra Clave" #input>
+  </mat-form-field>
+
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="ListEmployee" matSort>
+
+      <ng-container matColumnDef="Id" >
+        <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:15px"> ID </th>
+        <td mat-cell *matCellDef="let row"> {{row.id}} </td>
+      </ng-container>
+
+
+      <ng-container matColumnDef="Nombres">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Nombres </th>
+        <td mat-cell *matCellDef="let row"> {{row.nombres}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Apellidos">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Apellidos </th>
+        <td mat-cell *matCellDef="let row"> {{row.apellidos}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="FechaIngreso">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha ingreso </th>
+        <td mat-cell *matCellDef="let row"> {{row.fechaIngreso | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="FechaRetiro">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha retiro </th>
+        <td mat-cell *matCellDef="let row"> {{row.fechaIngreso | date}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Mail">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Mail </th>
+        <td mat-cell *matCellDef="let row"> {{row.mail}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Cargo">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cargo </th>
+        <td mat-cell *matCellDef="let row"> {{row.cargo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="Operaciones">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Operaciones </th>
+        <td mat-cell *matCellDef="let row">
+          <div class="d-flex">
+            <button class="btn btn-primary mx-1" [routerLink]="['/cms/employee-form', row.id]">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+            <button class="btn btn-danger" (click)="deleteEmployee(row.id)" >
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+      <!-- Row shown when there is no matching data. -->
+      <tr class="mat-row" *matNoDataRow>
+        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+  </div>
+
+
+
+</div>

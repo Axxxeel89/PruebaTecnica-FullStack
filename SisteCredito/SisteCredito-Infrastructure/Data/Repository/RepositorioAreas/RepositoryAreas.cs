@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SisteCredito_Core.Models;
 
 namespace SisteCredito_Infrastructure.Data.Repository.RepositorioAreas;
@@ -18,7 +19,13 @@ public class RepositoryAreas : Repository<Areas>, IRepositoryAreas
         await _context.SaveChangesAsync();
 
         return areas;
+    }
 
+    public async Task<IEnumerable<Areas>> SelectAreas()
+    {
+        IEnumerable<Areas> ddlAreas = await _context.Areas.ToListAsync();
+        
+        return ddlAreas;
     }
     
 }

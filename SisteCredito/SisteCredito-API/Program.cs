@@ -12,6 +12,7 @@ using SisteCredito_Core.Token;
 using SisteCredito_Infrastructure.Data;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioAreas;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioEmpleado;
+using SisteCredito_Infrastructure.Data.Repository.RepositorioGeneros;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioLideres;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioUsuarios;
 using SisteCredito_Infrastructure.Middlewares;
@@ -26,6 +27,7 @@ builder.Services.AddControllers(options => {
     options.Filters.Add(new AuthorizeFilter(policy));
 });
 
+builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,6 +42,7 @@ builder.Services.AddScoped<IRepositoryEmpleados, RepositoryEmpleados>();
 builder.Services.AddScoped<IRepositoryLideres, RepositoryLideres>();
 builder.Services.AddScoped<IRepositoryReporteHorasExtra, RepositoryReporteHorasExtra>();
 builder.Services.AddScoped<IRepositoryUsuarios, RepositoryUsuarios>();
+builder.Services.AddScoped<IRepositoryGeneros, RepositoryGeneros>();
 
 //--> Configuracion de los Jwt
 var builderSecurity = builder.Services.AddIdentityCore<Usuarios>();
@@ -51,7 +54,6 @@ builder.Services.AddAutoMapper(typeof(MappingConfig));
 //--> Agregamos el esquema que se va a encargar de agregar las tablas a la migracion
 identityBuilder.AddEntityFrameworkStores<ApplicationDbContext>();
 identityBuilder.AddSignInManager<SignInManager<Usuarios>>();
-builder.Services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationDbContext>();
 
 //--> Va agregar una referencia para saber la hora en la que se esta creando estos usuarios.
 builder.Services.AddSingleton<ISystemClock, SystemClock>();
@@ -97,9 +99,9 @@ app.UseHttpsRedirection();
 
 app.UseMiddleware<ManagerMiddleware>();
 
-app.UseCors("corsapp");
-
 app.UseAuthentication();
+
+app.UseCors("corsapp");
 
 app.UseAuthorization();
 

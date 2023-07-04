@@ -5,4 +5,5 @@ namespace SisteCredito_Infrastructure.Data.Repository.RepositorioAreas;
 public interface IRepositoryAreas : IRepository<Areas>
 {
     Task<Areas> Actualizar(Areas areas);
+    Task<IEnumerable<Areas>> SelectAreas();
 }
