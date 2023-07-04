@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ReporteHorasService } from 'src/app/services/reporteHoras/reporte-horas.service';
+import { ReporteHorasExtra } from 'src/app/Models/reporteHoraExtra';
 
 @Component({
   selector: 'app-reporte-horas-extra',
@@ -7,15 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReporteHorasExtraComponent implements OnInit {
 
-  displayedColumns = [];
-  dataSource = []
+  displayedColumns = ['Id','EmpleadoId', 'Fecha', 'HorasExtras', 'Motivo', 'Estado', 'Operaciones'];
+  listReportOvertime : ReporteHorasExtra [] = []
 
-  constructor() { }
+  constructor(
+    private reporteHorasService:ReporteHorasService
+  ) { }
 
   ngOnInit(): void {
+    this.listReportOvertimes;
+  }
+
+  listReportOvertimes(){
+    this.reporteHorasService.getAllReportOvertime()
+    .subscribe({next: (response) => {
+      this.listReportOvertime = response
+    }, error: (response) => {
+      console.log(response)
+    }
+  })
   }
 
   applyFilter(event: Event){
+
+  }
+
+  deleteReportOvertime(id:string){
 
   }
 

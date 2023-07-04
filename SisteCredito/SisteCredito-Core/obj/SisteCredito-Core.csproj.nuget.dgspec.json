@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\labs\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\SisteCredito-Core.csproj": {}
+    "D:\\Laboratorios Angular\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\SisteCredito-Core.csproj": {}
   },
   "projects": {
-    "C:\\labs\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\SisteCredito-Core.csproj": {
+    "D:\\Laboratorios Angular\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\SisteCredito-Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\labs\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\SisteCredito-Core.csproj",
+        "projectUniqueName": "D:\\Laboratorios Angular\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\SisteCredito-Core.csproj",
         "projectName": "SisteCredito-Core",
-        "projectPath": "C:\\labs\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\SisteCredito-Core.csproj",
-        "packagesPath": "C:\\Users\\ZonET\\.nuget\\packages\\",
-        "outputPath": "C:\\labs\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\obj\\",
+        "projectPath": "D:\\Laboratorios Angular\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\SisteCredito-Core.csproj",
+        "packagesPath": "C:\\Users\\jriosm\\.nuget\\packages\\",
+        "outputPath": "D:\\Laboratorios Angular\\RetoSisteCredito\\SisteCredito\\SisteCredito-Core\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ZonET\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\jriosm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -100,7 +100,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.202\\RuntimeIdentifierGraph.json"
         }
       }
     }

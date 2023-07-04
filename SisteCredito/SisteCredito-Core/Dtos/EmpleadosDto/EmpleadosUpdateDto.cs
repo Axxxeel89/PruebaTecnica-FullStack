@@ -10,7 +10,7 @@ public class EmpleadosUpdateDto
     public string FechaRetiro { get; set; } = String.Empty;
     public string GeneroId { get; set; } = String.Empty;
     public string Cargo { get; set; } = String.Empty;
-    public string? UsuarioHabilitado { get; set; }
+    public bool? UsuarioHabilitado { get; set; }
     public string Mail { get; set; } = String.Empty;
     public string AreasId { get; set; } = String.Empty;
     public string LiderId { get; set; } = String.Empty;

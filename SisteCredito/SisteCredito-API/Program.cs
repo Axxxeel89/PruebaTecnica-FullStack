@@ -12,6 +12,7 @@ using SisteCredito_Core.Token;
 using SisteCredito_Infrastructure.Data;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioAreas;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioEmpleado;
+using SisteCredito_Infrastructure.Data.Repository.RepositorioEstado;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioGeneros;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioLideres;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioUsuarios;
@@ -43,6 +44,7 @@ builder.Services.AddScoped<IRepositoryLideres, RepositoryLideres>();
 builder.Services.AddScoped<IRepositoryReporteHorasExtra, RepositoryReporteHorasExtra>();
 builder.Services.AddScoped<IRepositoryUsuarios, RepositoryUsuarios>();
 builder.Services.AddScoped<IRepositoryGeneros, RepositoryGeneros>();
+builder.Services.AddScoped<IRepositoryEstado, RepositoryEstado>();
 
 //--> Configuracion de los Jwt
 var builderSecurity = builder.Services.AddIdentityCore<Usuarios>();

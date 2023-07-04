@@ -14,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
 
 //Forms
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { ReporteHorasExtraFormComponent } from './reporte-horas-extra-form/reporte-horas-extra-form/reporte-horas-extra-form.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     HomeComponent,
     ReporteHorasExtraComponent,
     LayoutComponent,
-    ContactComponent
+    ContactComponent,
+    ReporteHorasExtraFormComponent
   ],
   imports: [
     CommonModule,

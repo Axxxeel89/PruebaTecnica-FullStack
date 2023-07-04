@@ -14,10 +14,15 @@ export interface Empleados{
   liderId: string
 }
 
-export interface EmpleadosCreateDto extends Omit<Empleados, 'id' | 'areas' | 'usuarioHabilitado' | 'fechaRetiro'>{
+export interface EmpleadosCreateDto extends Omit<Empleados, 'id' | 'areas'>{
 
 }
 
 export interface EmpleadoUpdateDto extends Omit<Empleados, 'areas'>{
 
+}
+
+export interface DDLEmpleados {
+  id: string,
+  nombres: string,
 }

@@ -5,4 +5,5 @@ namespace SisteCredito_Infrastructure.Data.Repository.RepositorioEmpleado;
 public interface IRepositoryEmpleados : IRepository<Empleados>
 {
     Task<Empleados> Actualizar(Empleados empleados);
+     Task<IEnumerable<Empleados>> SelectEmpleados();
 }

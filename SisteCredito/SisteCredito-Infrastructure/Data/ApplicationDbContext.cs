@@ -17,5 +17,6 @@ public class ApplicationDbContext : IdentityDbContext<Usuarios>
     public DbSet<Areas> Areas { get; set; }
     public DbSet<Generos> Generos { get; set; }
     public DbSet<ReporteHorasExtra> reporteHorasExtras { get; set; }
+    public DbSet<Estado> Estados {get; set;}
 
 }

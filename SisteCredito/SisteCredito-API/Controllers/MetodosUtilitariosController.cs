@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioAreas;
+using SisteCredito_Infrastructure.Data.Repository.RepositorioEmpleado;
+using SisteCredito_Infrastructure.Data.Repository.RepositorioEstado;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioGeneros;
 
 namespace SisteCredito_API.Controllers
@@ -16,14 +18,20 @@ namespace SisteCredito_API.Controllers
 
         private readonly IRepositoryGeneros _generoRepo;
         private readonly IRepositoryAreas _areasRepo;
+        private readonly IRepositoryEmpleados _empleRepo;
+        private readonly IRepositoryEstado _estadoRepo;
 
         public MetodosUtilitariosController(
             IRepositoryGeneros generoRepo,
-            IRepositoryAreas areasRepo
+            IRepositoryAreas areasRepo,
+            IRepositoryEmpleados empleRepo,
+            IRepositoryEstado estadoRepo
             )
         {
             _generoRepo = generoRepo;
             _areasRepo = areasRepo;
+            _empleRepo = empleRepo;
+            _estadoRepo = estadoRepo;
         }
 
 
@@ -48,5 +56,25 @@ namespace SisteCredito_API.Controllers
             return Ok(selectAreas);
 
         }
+
+        [HttpGet]
+        [Route("DDLEmpleados")]
+        public async Task<IActionResult> DDLEmpleados()
+        {
+            var selectEmpleados = await _empleRepo.SelectEmpleados();
+
+            return Ok(selectEmpleados);
+        }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("DDLEstados")]
+        public async Task<IActionResult> DDLEstados()
+        {
+            var selectEstadoReporte = await _estadoRepo.SelectEstado();
+
+            return Ok(selectEstadoReporte);
+        }
+
     }
 }

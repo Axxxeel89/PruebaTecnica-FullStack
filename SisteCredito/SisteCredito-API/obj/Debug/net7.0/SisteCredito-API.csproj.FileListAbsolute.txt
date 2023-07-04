@@ -181,3 +181,6 @@ C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\obj\Debug\net7.0\ref\Sist
 C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\labs\RetoSisteCredito\SisteCredito\SisteCredito-API\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-API\bin\Debug\net7.0\Microsoft.AspNetCore.JsonPatch.dll
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-API\bin\Debug\net7.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
+D:\Laboratorios Angular\RetoSisteCredito\SisteCredito\SisteCredito-API\bin\Debug\net7.0\Newtonsoft.Json.Bson.dll

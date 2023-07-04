@@ -199,7 +199,7 @@ namespace SisteCredito_Infrastructure.Data.Migrations
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("FechaRetiro")
+                    b.Property<DateTime?>("FechaRetiro")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("GeneroId")
@@ -229,6 +229,23 @@ namespace SisteCredito_Infrastructure.Data.Migrations
                     b.HasIndex("LiderId");
 
                     b.ToTable("Empleados");
+                });
+
+            modelBuilder.Entity("SisteCredito_Core.Models.Estado", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Nombre")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Estado");
                 });
 
             modelBuilder.Entity("SisteCredito_Core.Models.Generos", b =>
@@ -314,9 +331,6 @@ namespace SisteCredito_Infrastructure.Data.Migrations
                     b.Property<int>("EmpleadoId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Estado")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("Fecha")
                         .HasColumnType("datetime2");
 
@@ -331,9 +345,14 @@ namespace SisteCredito_Infrastructure.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("estadoId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("EmpleadoId");
+
+                    b.HasIndex("estadoId");
 
                     b.ToTable("reporteHorasExtras");
                 });
@@ -512,7 +531,15 @@ namespace SisteCredito_Infrastructure.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("SisteCredito_Core.Models.Estado", "Estado")
+                        .WithMany()
+                        .HasForeignKey("estadoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Empleado");
+
+                    b.Navigation("Estado");
                 });
 
             modelBuilder.Entity("SisteCredito_Core.Models.Areas", b =>

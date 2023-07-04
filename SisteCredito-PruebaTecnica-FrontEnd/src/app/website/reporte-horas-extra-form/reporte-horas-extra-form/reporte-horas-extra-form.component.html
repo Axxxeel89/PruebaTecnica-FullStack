@@ -1,0 +1,74 @@
+<app-nav></app-nav>
+<div class="ReporteHoras contenedor">
+  <div class="ReporteHoras__contentTitle">
+    <h1 class="ReporteHoras__title">Agregar Nuevo Empleado</h1>
+    <a class="btn btn-secondary" routerLink="/reporte-horas-extra"><i class="bi bi-backspace"></i> Regresar</a>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="Save($event)">
+    <input type="text" formControlName="id" hidden>
+    <div class="ReporteHoras__form">
+
+      <div class="ReporteHoras__formBody">
+        <mat-form-field>
+          <mat-label>Empleado</mat-label>
+          <mat-select formControlName="empleadoId">
+            <mat-option disabled selected>--Seleccione Estado--</mat-option>
+            <mat-option *ngFor="let item of empleadosId" value="{{item.id}}">{{item.nombres}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Fecha</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="fecha">
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+          <mat-hint *ngIf="fechaField?.touched && fechaField?.hasError('required')">El campo apellidos es requerido</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field  class="example-form-field">
+          <mat-label>Horas Extras</mat-label>
+          <input matInput formControlName="horasExtra" type="text" >
+          <mat-hint *ngIf="horasExtraField?.touched && horasExtraField?.hasError('required')">El campo apellidos es requerido</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Motivo</mat-label>
+          <textarea matInput formControlName="motivo" placeholder="Escribe un motivo para este reporte"></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Motivo rechazo</mat-label>
+          <textarea matInput formControlName="motivoRechazo" placeholder="Escribe un motivo para rechazar este reporte"></textarea>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Estado</mat-label>
+          <mat-select formControlName="estado">
+            <mat-option disabled selected>--Seleccione Estado--</mat-option>
+            <mat-option *ngFor="let item of estadosId" value="{{item.id}}">{{item.nombre}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <section class="example-section">
+          <mat-checkbox class="example-margin" formControlName="aprobadoPorLider" >Aprobado Por Lider</mat-checkbox>
+        </section>
+
+        <section class="example-section">
+          <mat-checkbox class="example-margin" formControlName="aprobadoPorTalentoHumano" >Aprobado Por Talento Humano</mat-checkbox>
+        </section>
+
+        <section class="example-section">
+          <mat-checkbox class="example-margin" formControlName="aprobadoPorGerencia" >Aprobado Por Gerencia</mat-checkbox>
+        </section>
+
+      </div>
+
+      <button mat-raised-button color="primary"><mat-icon fontIcon="save"></mat-icon>Guardar</button>
+
+    </div>
+
+  </form>
+
+</div>
+

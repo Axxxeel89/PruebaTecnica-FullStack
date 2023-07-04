@@ -5,6 +5,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ReporteHorasExtraComponent } from './pages/reporte-horas-extra/reporte-horas-extra.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { ReporteHorasExtraFormComponent } from './reporte-horas-extra-form/reporte-horas-extra-form/reporte-horas-extra-form.component';
+
 
 const routes: Routes = [
   {
@@ -27,6 +29,14 @@ const routes: Routes = [
       {
         path: 'reporte-horas-extra',
         component: ReporteHorasExtraComponent
+      },
+      {
+        path: 'reporte-horas-extra-form',
+        component: ReporteHorasExtraFormComponent
+      },
+      {
+        path: 'reporte-horas-extra-form/:id',
+        component: ReporteHorasExtraFormComponent
       },
       {
         path: 'contact',

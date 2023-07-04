@@ -23,7 +23,7 @@ export class EmpleadosService {
   }
 
   createEmployee(employee: EmpleadosCreateDto){
-    return this.http.post<Empleados>(`${this.API_URL}/`, employee)
+    return this.http.post<Empleados>(`${this.API_URL}`, employee)
   }
 
   updateEmployee(id:string, employee: EmpleadoUpdateDto){

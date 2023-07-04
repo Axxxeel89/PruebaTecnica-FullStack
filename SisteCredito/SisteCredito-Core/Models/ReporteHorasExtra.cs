@@ -15,11 +15,14 @@ public class ReporteHorasExtra
     public string Motivo { get; set; } = string.Empty;
     [Required]
     public string MotivoRechazo { get; set; } = string.Empty;
-    public EstadoReporteHora Estado { get; set; }
+    public int estadoId { get; set; }
     public bool AprobadoPorLider { get; set; }
     public bool AprobadoPorTalentoHumano { get; set; }
     public bool AprobadoPorGerencia { get; set; }
 
     [ForeignKey("EmpleadoId")]
     public virtual Empleados? Empleado { get; set; }
+
+    [ForeignKey("estadoId")]
+    public virtual Estado? Estado { get; set; }
 }

@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using SisteCredito_Core.Models;
 
 namespace SisteCredito_Infrastructure.Data.Repository.RepositorioAreas;

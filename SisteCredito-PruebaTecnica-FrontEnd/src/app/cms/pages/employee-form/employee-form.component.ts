@@ -100,6 +100,8 @@ export class EmployeeFormComponent implements OnInit {
       cargo: this.form.value.cargo!,
       fechaNacimiento: this.form.value.fechaNacimiento!,
       fechaIngreso: this.form.value.fechaIngreso!,
+      fechaRetiro: this.form.value.fechaRetiro!,
+      usuarioHabilitado: this.form.value.usuarioHabilitado!,
       areasId: this.form.value.areasId!,
       generoId: this.form.value.generoId!,
       liderId: this.form.value.liderId!,
