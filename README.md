@@ -1,5 +1,5 @@
-# RetoSisteCredito
-Este programa es desarrollado como parte de un reto de la empresa de sisteCredito:
+# Prueba Tecnica - Full Stack
+
 
 Informe Técnico: Aplicación Backend con C# .NET
 
@@ -21,6 +21,9 @@ JWT (JSON Web Tokens): Se utilizó JWT para generar y validar tokens de autentic
 AutoMapper: Se utilizó AutoMapper para mapear automáticamente objetos DTO a entidades y viceversa.
 Json.NET: Se utilizó Json.NET (Newtonsoft.Json) para la serialización y deserialización de objetos JSON.
 El desarrollo del backend se realizó siguiendo las mejores prácticas de programación y se tuvo en cuenta la seguridad y escalabilidad. Se implementaron pruebas unitarias y se gestionaron adecuadamente los errores y excepciones.
+
+
+
 
 Informe Técnico: Aplicación Frontend con Angular
 
