@@ -40,3 +40,26 @@ En cuanto a la implementación, se siguieron las mejores prácticas de desarroll
 A pesar de utilizar Angular 15, se tuvo en cuenta la compatibilidad con Angular 12 y se aseguró de que el código implementado funcionara correctamente en ambas versiones.
 
 quedaron pendiente algunas validaciones en el frontend y pruebas unitarias, siendo completamente transparente indicando que en angular apenas empecé aprender pruebas unitarias.
+
+
+
+
+Funcionalidad de la aplicacion:
+
+La aplicación desarrollada incluye las siguientes funcionalidades:
+
+Gestión de entidades: Se crearon las entidades Empleado, Lideres, ReporteHoraExtra, Areas, Generos y Estados. Estas entidades están relacionadas entre sí utilizando el motor de SQL Server.
+
+Tabla ReporteHoraExtra: Se intentó crear una tabla ReporteHoraExtra que utiliza la relación entre empleados y estados para parametrizar las horas del personal. Sin embargo, esta funcionalidad no se pudo completar al 100%.
+
+Autorización de Horas: Se planeaba implementar la funcionalidad de permisos de autorización de horas, pero no se pudo finalizar en su totalidad.
+
+Interceptores: Se utilizan interceptores para manejar las solicitudes HTTP y realizar tareas como agregar encabezados de autorización o manejar errores.
+
+Guards: Se implementaron guards para proteger las rutas y asegurar que solo los usuarios autenticados puedan acceder a ciertas páginas.
+
+Reactividad: Se utilizó la programación reactiva para manejar los cambios en los datos y actualizar la interfaz de usuario en consecuencia.
+
+Almacenamiento de datos del usuario: Se utilizó el localStorage para guardar los datos del usuario, lo que permite mantener la sesión activa y recordar la información del usuario entre sesiones.
+
+Aunque la aplicación no se completó al 100%, se lograron implementar algunas funcionalidades importantes, como la gestión de entidades, la utilización de interceptores y guards, y el almacenamiento de datos del usuario. Se reconoce que quedaron pendientes funcionalidades como la completa parametrización de las horas del personal y la finalización de los permisos de autorización de horas.
