@@ -68,7 +68,7 @@ Aunque la aplicación no se completó al 100%, se lograron implementar algunas f
 
 Usuario para ingreso: 
 
-Usuario: john.rios@sisteCredito.com - Pwd: Siste2023*
-Usuario: vivian.ochoa@sisteCredito.com - Pwd: Siste2023*
-Usuario: santiago.rios@sisteCredito.com - Pwd: Siste2023*
-Usuario: paulina.david@sisteCredito.com - Pwd: Siste2023*
+Usuario: john.rios@sisteCredito.com - Pwd: Siste2023* - Rol: Gerente
+Usuario: vivian.ochoa@sisteCredito.com - Pwd: Siste2023*  - Rol: Tesoreria
+Usuario: santiago.rios@sisteCredito.com - Pwd: Siste2023* - Rol: LiderTecnico
+Usuario: paulina.david@sisteCredito.com - Pwd: Siste2023* - Rol: Empleado
