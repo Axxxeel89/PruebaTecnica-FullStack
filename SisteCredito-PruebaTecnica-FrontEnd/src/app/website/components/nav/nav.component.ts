@@ -24,7 +24,6 @@ export class NavComponent implements OnInit {
       this.usuarioSesion = JSON.parse(usuarioString);
       this.usuario = this.usuarioSesion.usuario.email;
       this.user = this.usuarioSesion.usuario.rol;
-      console.log(this.user)
     }
   }
 

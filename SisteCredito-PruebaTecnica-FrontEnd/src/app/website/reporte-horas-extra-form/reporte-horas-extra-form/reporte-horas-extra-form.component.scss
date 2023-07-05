@@ -9,10 +9,12 @@ $c-terciario: #c92027;
 
 .ReporteHoras{
   width: 90%;
+  height: 80vh;
   margin: 0 auto;
   margin-top: 10px;
 
   &__contentTitle{
+    margin-top: 30px;
     background-color: #fff;
     width: 100%;
     height: 60px;

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SisteCredito_Core.Dtos.ReporteHoraExtraDto;
 using SisteCredito_Core.Models;
@@ -16,20 +17,29 @@ namespace SisteCredito_API.Controllers
     {
         private readonly IMapper _mapper;
         private readonly IRepositoryReporteHorasExtra _reporteHoraRepo;
+        private readonly ILogger<ReporteHorasExtraController> _logger;
 
-        public ReporteHorasExtraController(IMapper mapper, IRepositoryReporteHorasExtra reporteHoraRepo )
+        public ReporteHorasExtraController(
+            IMapper mapper, 
+            IRepositoryReporteHorasExtra reporteHoraRepo,
+            ILogger<ReporteHorasExtraController> ilogger
+            )
         {
             _mapper = mapper;
             _reporteHoraRepo = reporteHoraRepo;
+            _logger = ilogger;
         }
 
-        [HttpGet]
+        [HttpGet("nombreUsuario:string")]
+        [AllowAnonymous]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> ListarHorasExtra ()
+        public async Task<IActionResult> ListarHorasExtra (string nombreUsuario)
         {
-            return Ok(await _reporteHoraRepo.ObtenerTodos());
+            _logger.LogInformation($"{nombreUsuario}");
+            var listado = await _reporteHoraRepo.ObtenerConRelaciones(nombreUsuario);
+            return Ok(listado);
         }
 
         [HttpGet("{id:int}", Name = "ObtenerHoraExtraById")]
@@ -75,6 +85,7 @@ namespace SisteCredito_API.Controllers
 
             if(reporteHoraRequest is null)
             {
+                ModelState.AddModelError("Error", $"Error la data puede estar vacia {reporteHoraRequest}");
                 return BadRequest();
             }
 
@@ -128,15 +139,9 @@ namespace SisteCredito_API.Controllers
                 return BadRequest(ModelState);
             }
 
-            var horaExtra = await _reporteHoraRepo.Obtener(x => x.Id == id);
+            ReporteHorasExtra reporte = _mapper.Map<ReporteHorasExtra>(reporteHorasExtra);
 
-            if(horaExtra is null)
-            {
-                ModelState.AddModelError("ErrorId", $"El id={id} no tiene ningún valor asociado");
-                return NotFound(ModelState);
-            }
-
-            await _reporteHoraRepo.Actualizar(horaExtra);
+            await _reporteHoraRepo.Actualizar(reporte);
 
             return NoContent();
         }

@@ -21,7 +21,6 @@ export class HomeComponent implements OnInit {
     {
       this.dato= JSON.parse(datoString)
       this.token = this.dato.usuario.token;
-      console.log(this.token)
     }
   }
 

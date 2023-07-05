@@ -4,7 +4,7 @@ import { EmpleadosService } from 'src/app/services/empleados/empleados.service';
 import { EmpleadoUpdateDto, Empleados, EmpleadosCreateDto } from 'src/app/Models/empleados';
 import { Router, Params, ActivatedRoute } from '@angular/router';
 import { MetodosUtilService } from 'src/app/services/metodosUtil/metodos-util.service';
-import { generos, areas } from 'src/app/Models/MetodosUtilitarios';
+import { generos, areas, DDLlideres } from 'src/app/Models/MetodosUtilitarios';
 
 @Component({
   selector: 'app-employee-form',
@@ -23,13 +23,14 @@ export class EmployeeFormComponent implements OnInit {
     usuarioHabilitado: new FormControl(false),
     generoId: new FormControl('', Validators.required),
     mail: new FormControl('', [Validators.required, Validators.email]),
-    cargo: new FormControl('Lider', Validators.required),
+    cargo: new FormControl('Empleado', Validators.required),
     areasId: new FormControl('', Validators.required),
     liderId: new FormControl('', Validators.required),
   })
 
   generoId : generos[] = []
   areasId : areas[] = []
+  liderId : DDLlideres[] = []
   employeeId: string | null = ''
 
   constructor(
@@ -50,6 +51,12 @@ export class EmployeeFormComponent implements OnInit {
     this.metodosUtilService.getAreas()
     .subscribe({next: (response) => {
       this.areasId = response
+    }, error: (error) => {
+      console.log(error)
+    }})
+    this.metodosUtilService.getLideres()
+    .subscribe({next: (response) => {
+      this.liderId = response
     }, error: (error) => {
       console.log(error)
     }})
@@ -100,7 +107,6 @@ export class EmployeeFormComponent implements OnInit {
       cargo: this.form.value.cargo!,
       fechaNacimiento: this.form.value.fechaNacimiento!,
       fechaIngreso: this.form.value.fechaIngreso!,
-      fechaRetiro: this.form.value.fechaRetiro!,
       usuarioHabilitado: this.form.value.usuarioHabilitado!,
       areasId: this.form.value.areasId!,
       generoId: this.form.value.generoId!,

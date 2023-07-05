@@ -6,7 +6,6 @@ public class EmpleadosRequestDto
     public string Apellidos { get; set; } = String.Empty;
     public string FechaNacimiento { get; set; } = String.Empty;
     public string FechaIngreso { get; set; } = String.Empty;
-    public string FechaRetiro { get; set; } = String.Empty;
     public string GeneroId { get; set; } = String.Empty;
     public string Cargo { get; set; } = String.Empty;
     public bool? UsuarioHabilitado { get; set; }

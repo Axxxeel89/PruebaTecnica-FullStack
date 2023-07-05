@@ -10,12 +10,13 @@ export class ReporteHorasService {
 
   private API_URL:string = `${environment.API_URL}/ReporteHorasExtra`
 
+
   constructor(
     private http:HttpClient
   ) { }
 
-  getAllReportOvertime(){
-    return this.http.get<ReporteHorasExtra[]>(this.API_URL)
+  getAllReportOvertime(usuarioLogueado: string){
+    return this.http.get<ReporteHorasExtra[]>(`${this.API_URL}/nombreUsuario:string?nombreUsuario=${usuarioLogueado}`)
   }
 
   getReportOvertimeById(id:string){
@@ -27,11 +28,11 @@ export class ReporteHorasService {
   }
 
   updateReportOvertime(id:string, report:ReporteHorasExtraUpdateDto){
-    return this.http.put<any>(`${this.API_URL}/${id}`, report)
+    return this.http.put<ReporteHorasExtra>(`${this.API_URL}/${id}`, report)
   }
 
   deleteReportOvertime(id:string){
-    return this.http.delete<any>(`${this.API_URL}/${id}`)
+    return this.http.delete<ReporteHorasExtra>(`${this.API_URL}/${id}`)
   }
 
 }

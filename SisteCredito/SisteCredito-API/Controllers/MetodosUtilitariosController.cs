@@ -8,6 +8,7 @@ using SisteCredito_Infrastructure.Data.Repository.RepositorioAreas;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioEmpleado;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioEstado;
 using SisteCredito_Infrastructure.Data.Repository.RepositorioGeneros;
+using SisteCredito_Infrastructure.Data.Repository.RepositorioLideres;
 
 namespace SisteCredito_API.Controllers
 {
@@ -20,18 +21,21 @@ namespace SisteCredito_API.Controllers
         private readonly IRepositoryAreas _areasRepo;
         private readonly IRepositoryEmpleados _empleRepo;
         private readonly IRepositoryEstado _estadoRepo;
+        private readonly IRepositoryLideres _lideresRepo;
 
         public MetodosUtilitariosController(
             IRepositoryGeneros generoRepo,
             IRepositoryAreas areasRepo,
             IRepositoryEmpleados empleRepo,
-            IRepositoryEstado estadoRepo
+            IRepositoryEstado estadoRepo,
+            IRepositoryLideres lideresRepo
             )
         {
             _generoRepo = generoRepo;
             _areasRepo = areasRepo;
             _empleRepo = empleRepo;
             _estadoRepo = estadoRepo;
+            _lideresRepo = lideresRepo;
         }
 
 
@@ -67,13 +71,21 @@ namespace SisteCredito_API.Controllers
         }
 
         [HttpGet]
-        [AllowAnonymous]
-        [Route("DDLEstados")]
-        public async Task<IActionResult> DDLEstados()
+        [Route("DDLEstadosReporte")]
+        public async Task<IActionResult> DDLEstadosReporte()
         {
             var selectEstadoReporte = await _estadoRepo.SelectEstado();
 
             return Ok(selectEstadoReporte);
+        }
+
+        [HttpGet]
+        [Route("DDLLideres")]
+        public async Task<IActionResult> DDLLideres()
+        {
+            var selectLideres = await _lideresRepo.DDLLideres();
+
+            return Ok(selectLideres);
         }
 
     }

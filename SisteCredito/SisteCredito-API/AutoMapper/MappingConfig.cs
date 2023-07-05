@@ -2,6 +2,7 @@ using AutoMapper;
 using SisteCredito_Core.Dtos.AreasDto;
 using SisteCredito_Core.Dtos.EmpleadosDto;
 using SisteCredito_Core.Dtos.LideresDto;
+using SisteCredito_Core.Dtos.ReporteHoraExtraDto;
 using SisteCredito_Core.Dtos.UsuariosDto;
 using SisteCredito_Core.Models;
 
@@ -26,5 +27,9 @@ public class MappingConfig : Profile
         CreateMap<Usuarios, UsuarioLoginDto>().ReverseMap();
         CreateMap<Usuarios, UsuarioRegisterDto>().ReverseMap();
         CreateMap<Usuarios, UsuarioRegisterDto>().ReverseMap();
+
+        CreateMap<ReporteHorasExtra, ReporteHorasExtraRequestDto>().ReverseMap();
+        CreateMap<ReporteHorasExtra, ReporteHorasExtraResponseDto>().ReverseMap();
+        CreateMap<ReporteHorasExtra, ReporteHorasExtraUpdateDto>().ReverseMap();
     }
 }

@@ -18,7 +18,7 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/reporte-horas-extra">Reporte Hora Extras</a>
         </li>
-        <li *ngIf="user== 'Gerente'"  class="nav-item">
+        <li *ngIf="user == 'Gerente' || user == 'LiderTecnico' || user == 'Tesoreria'" class="nav-item">
             <a class="nav-link" routerLink="/cms/employee">Administracion</a>
         </li>
       </ul>

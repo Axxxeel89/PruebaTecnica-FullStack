@@ -7,6 +7,7 @@ import { AdministracionComponent } from './pages/administracion/administracion.c
 import { RegisterComponent } from './pages/register/register.component';
 import { LeaderFormComponent } from './pages/leader-form/leader-form.component';
 import { EmployeeFormComponent } from './pages/employee-form/employee-form.component';
+import { AuthGuard } from '../guard/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -20,34 +21,42 @@ const routes: Routes = [
       },
       {
         path: 'administracion',
+        canActivate: [AuthGuard],
         component: AdministracionComponent
       },
       {
         path: 'register',
+        canActivate: [AuthGuard],
         component: RegisterComponent
       },
       {
         path: 'employee',
+        canActivate: [AuthGuard],
         component: EmployeeComponent
       },
       {
         path: 'employee-form',
+        canActivate: [AuthGuard],
         component: EmployeeFormComponent
       },
       {
         path: 'employee-form/:id',
+        canActivate: [AuthGuard],
         component: EmployeeFormComponent
       },
       {
         path: 'leader',
+        canActivate: [AuthGuard],
         component: LeaderComponent
       },
       {
         path: 'leader-form',
+        canActivate: [AuthGuard],
         component: LeaderFormComponent
       },
       {
         path: 'leader-form/:id',
+        canActivate: [AuthGuard],
         component: LeaderFormComponent
       },
       {

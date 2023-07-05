@@ -1,6 +1,9 @@
 <div class="LeaderForm contenedor">
   <div class="LeaderForm__contentTitle">
-    <h1 class="LeaderForm__title">Agregar Nuevo Empleado</h1>
+    <h1 class="LeaderForm__title" *ngIf="employeeId; else title">Editar Empleado</h1>
+    <ng-template #title>
+      <h1 class="LeaderForm__title">Agregar Nuevo Empleado</h1>
+    </ng-template>
     <a class="btn btn-secondary" routerLink="/cms/employee" ><i class="bi bi-backspace"></i> Regresar</a>
   </div>
 
@@ -52,7 +55,7 @@
           <mat-hint *ngIf="fechaIngresoField?.touched && fechaIngresoField?.hasError('required')">El campo fecha de ingreso es requerido</mat-hint>
         </mat-form-field>
 
-        <mat-form-field>
+        <mat-form-field *ngIf="employeeId">
           <mat-label>Fecha de Retiro</mat-label>
           <input matInput [matDatepicker]="picker3" formControlName="fechaRetiro">
           <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
@@ -81,7 +84,7 @@
           <mat-label>Lider asociado</mat-label>
           <mat-select formControlName="liderId">
             <mat-option disabled selected>--Seleccione Lider--</mat-option>
-            <mat-option *ngFor="let item of areasId" value="{{item.id}}">{{item.nombre}}</mat-option>
+            <mat-option *ngFor="let item of liderId" value="{{item.id}}">{{item.nombres}}</mat-option>
           </mat-select>
           <mat-hint *ngIf="areasField?.touched && areasField?.hasError('required')">El campo areas es requerido</mat-hint>
         </mat-form-field>

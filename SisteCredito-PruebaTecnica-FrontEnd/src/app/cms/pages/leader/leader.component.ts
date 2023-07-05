@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LeaderService } from 'src/app/services/leader/leader.service';
 import { Leader } from 'src/app/Models/leader';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-leader',
@@ -32,12 +33,29 @@ export class LeaderComponent implements OnInit {
   }
 
   EliminarLeader(id:string){
-    this.leaderService.deleteLeader(id)
-    .subscribe({next: (response) => {
-      this.listLeaders();
-    }, error: (response) => {
-      console.log(response)
-    }
+    Swal.fire({
+      title: 'Estas seguro?',
+      text: "Si eliminas el registro sera de forma permanente",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Si, eliminar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.leaderService.deleteLeader(id)
+        .subscribe({next: (response) => {
+          this.listLeaders();
+        }, error: (response) => {
+          console.log(response)
+        }
+        })
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
     })
   }
 

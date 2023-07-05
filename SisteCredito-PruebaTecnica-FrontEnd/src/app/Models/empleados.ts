@@ -4,7 +4,7 @@ export interface Empleados{
   apellidos: string,
   fechaNacimiento: string,
   fechaIngreso: string,
-  fechaRetiro: string,
+  fechaRetiro?: string | null,
   generoId: string,
   usuarioHabilitado: boolean,
   mail: string,
@@ -14,7 +14,7 @@ export interface Empleados{
   liderId: string
 }
 
-export interface EmpleadosCreateDto extends Omit<Empleados, 'id' | 'areas'>{
+export interface EmpleadosCreateDto extends Omit<Empleados, 'id' | 'areas' | 'fechaRetiro'>{
 
 }
 

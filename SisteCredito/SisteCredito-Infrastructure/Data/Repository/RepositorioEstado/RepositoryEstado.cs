@@ -14,7 +14,7 @@ public class RepositoryEstado : Repository<Estado>, IRepositoryEstado
 
     public async Task<IEnumerable<Estado>> SelectEstado()
     {
-        IEnumerable<Estado> ddlEstado = await _context.Estados.ToListAsync();
+        IEnumerable<Estado> ddlEstado = await _context.Estado.ToListAsync();
         
         return ddlEstado;
     }

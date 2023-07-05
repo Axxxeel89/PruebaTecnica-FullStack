@@ -18,10 +18,10 @@ export class ReporteHorasExtraFormComponent implements OnInit {
     id: new FormControl(''),
     empleadoId: new FormControl('', Validators.required),
     fecha: new FormControl('', Validators.required),
-    horasExtra: new FormControl('', Validators.required),
+    horasExtras: new FormControl('', Validators.required),
     motivo: new FormControl(''),
-    motivoRechazo: new FormControl(),
-    estado: new FormControl(''),
+    motivoRechazo: new FormControl(' '),
+    estadoId: new FormControl(''),
     aprobadoPorLider: new FormControl(false),
     aprobadoPorTalentoHumano: new FormControl(false),
     aprobadoPorGerencia: new FormControl(false),
@@ -30,6 +30,9 @@ export class ReporteHorasExtraFormComponent implements OnInit {
   reportHourId: string | null = ''
   empleadosId: DDLEmpleados[] = []
   estadosId: Estados[] = []
+  datosUsuario: any = null;
+  cargoUsuarioLogueado: string = '';
+  nombreUsuarioLogueado: string = '';
 
   constructor(
     private reporteHorasService:ReporteHorasService,
@@ -40,11 +43,16 @@ export class ReporteHorasExtraFormComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.datosUsuario = localStorage.getItem('SesionUsuario');
+    this.datosUsuario = JSON.parse(this.datosUsuario)
+    if(this.datosUsuario)
+    {
+      this.cargoUsuarioLogueado = this.datosUsuario.usuario.rol
+    }
     this.metodosUtilService.getEmpleados()
     .subscribe({
       next: (response) => {
         this.empleadosId = response
-        console.log(response)
       }, error: (reject) => {
         console.log(reject)
       }
@@ -53,7 +61,6 @@ export class ReporteHorasExtraFormComponent implements OnInit {
     .subscribe({
       next: (response) => {
         this.estadosId = response
-        console.log(response)
       }, error: (reject) => {
         console.log(reject)
       }
@@ -73,9 +80,13 @@ export class ReporteHorasExtraFormComponent implements OnInit {
   getReportHourById(){
     this.reporteHorasService.getReportOvertimeById(this.reportHourId!)
     .subscribe( rta => {
+      console.log(rta)
       this.form.patchValue(rta);
       if (rta.empleadoId !== undefined) {
         this.form.get('empleadoId')?.setValue(rta.empleadoId.toString());
+      }
+      if (rta.estadoId !== undefined) {
+        this.form.get('estadoId')?.setValue(rta.estadoId.toString());
       }
     })
   }
@@ -95,10 +106,10 @@ export class ReporteHorasExtraFormComponent implements OnInit {
     const data:ReporteHorasExtraCreateDto = {
       empleadoId: this.form.value.empleadoId!,
       fecha: this.form.value.fecha!,
-      horasExtra: this.form.value.horasExtra!,
+      horasExtras: this.form.value.horasExtras!,
       motivo: this.form.value.motivo!,
       motivoRechazo: this.form.value.motivoRechazo!,
-      estado: this.form.value.estado!,
+      estadoId: this.form.value.estadoId!,
       aprobadoPorLider: this.form.value.aprobadoPorLider!,
       aprobadoPorTalentoHumano: this.form.value.aprobadoPorTalentoHumano!,
       aprobadoPorGerencia: this.form.value.aprobadoPorGerencia!,
@@ -112,19 +123,20 @@ export class ReporteHorasExtraFormComponent implements OnInit {
   }
 
   updateReportHour(){
-    const data:ReporteHorasExtra = {
+    const data:ReporteHorasExtraUpdateDto = {
       id: this.form.value.id!,
       empleadoId: this.form.value.empleadoId!,
       fecha: this.form.value.fecha!,
-      horasExtra: this.form.value.horasExtra!,
+      horasExtras: this.form.value.horasExtras!,
       motivo: this.form.value.motivo!,
       motivoRechazo: this.form.value.motivoRechazo!,
-      estado: this.form.value.estado!,
+      estadoId: this.form.value.estadoId!,
       aprobadoPorLider: this.form.value.aprobadoPorLider!,
       aprobadoPorTalentoHumano: this.form.value.aprobadoPorTalentoHumano!,
       aprobadoPorGerencia: this.form.value.aprobadoPorGerencia!,
     }
 
+    console.log(data);
 
     this.reporteHorasService.updateReportOvertime(this.reportHourId!, data)
     .subscribe({ next: (rta) => {
@@ -143,7 +155,7 @@ export class ReporteHorasExtraFormComponent implements OnInit {
   }
 
   get horasExtraField(){
-    return this.form.get('horasExtra')
+    return this.form.get('horasExtras')
   }
 
   get motivoField(){

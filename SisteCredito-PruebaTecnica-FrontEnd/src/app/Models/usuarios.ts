@@ -1,7 +1,7 @@
 export interface usuarios{
   id: string | null,
-  Nombres: string,
-  Apellidos: string,
+  nombres: string,
+  apellidos: string,
   rol: string,
   email: string,
   userName: string,
@@ -15,8 +15,8 @@ export interface usuariosLoginDto{
 }
 
 export interface usuarioRegisterDto {
-  Nombres: string,
-  Apellidos: string,
+  nombres: string,
+  apellidos: string,
   rol: string | null,
   email: string | null,
   userName: string | null,

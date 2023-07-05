@@ -1,7 +1,10 @@
 <app-nav></app-nav>
 <div class="ReporteHoras contenedor">
   <div class="ReporteHoras__contentTitle">
-    <h1 class="ReporteHoras__title">Agregar Nuevo Empleado</h1>
+    <h1 class="ReporteHoras__title" *ngIf="reportHourId; else crear">Editar Hora Extra</h1>
+    <ng-template #crear>
+      <h1 class="ReporteHoras__title">Registrar Nueva Hora Extra</h1>
+    </ng-template>
     <a class="btn btn-secondary" routerLink="/reporte-horas-extra"><i class="bi bi-backspace"></i> Regresar</a>
   </div>
 
@@ -16,6 +19,7 @@
             <mat-option disabled selected>--Seleccione Estado--</mat-option>
             <mat-option *ngFor="let item of empleadosId" value="{{item.id}}">{{item.nombres}}</mat-option>
           </mat-select>
+          <mat-hint *ngIf="empleadoIdField?.touched && empleadoIdField?.hasError('required')">El campo Empleado es requerido</mat-hint>
         </mat-form-field>
 
         <mat-form-field>
@@ -23,13 +27,13 @@
           <input matInput [matDatepicker]="picker" formControlName="fecha">
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-          <mat-hint *ngIf="fechaField?.touched && fechaField?.hasError('required')">El campo apellidos es requerido</mat-hint>
+          <mat-hint *ngIf="fechaField?.touched && fechaField?.hasError('required')">El campo fecha es requerido</mat-hint>
         </mat-form-field>
 
         <mat-form-field  class="example-form-field">
           <mat-label>Horas Extras</mat-label>
-          <input matInput formControlName="horasExtra" type="text" >
-          <mat-hint *ngIf="horasExtraField?.touched && horasExtraField?.hasError('required')">El campo apellidos es requerido</mat-hint>
+          <input matInput formControlName="horasExtras" type="text" >
+          <mat-hint *ngIf="horasExtraField?.touched && horasExtraField?.hasError('required')">El campo Horas Extra es requerido</mat-hint>
         </mat-form-field>
 
         <mat-form-field class="example-full-width">
@@ -37,28 +41,28 @@
           <textarea matInput formControlName="motivo" placeholder="Escribe un motivo para este reporte"></textarea>
         </mat-form-field>
 
-        <mat-form-field class="example-full-width">
+        <mat-form-field class="example-full-width" *ngIf="cargoUsuarioLogueado == 'Gerente' || cargoUsuarioLogueado == 'LiderTecnico' || cargoUsuarioLogueado == 'Tesoreria' ">
           <mat-label>Motivo rechazo</mat-label>
           <textarea matInput formControlName="motivoRechazo" placeholder="Escribe un motivo para rechazar este reporte"></textarea>
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Estado</mat-label>
-          <mat-select formControlName="estado">
+          <mat-select formControlName="estadoId">
             <mat-option disabled selected>--Seleccione Estado--</mat-option>
             <mat-option *ngFor="let item of estadosId" value="{{item.id}}">{{item.nombre}}</mat-option>
           </mat-select>
         </mat-form-field>
 
-        <section class="example-section">
+        <section class="example-section" *ngIf="cargoUsuarioLogueado == 'Gerente' || cargoUsuarioLogueado == 'LiderTecnico' || cargoUsuarioLogueado == 'Tesoreria' ">
           <mat-checkbox class="example-margin" formControlName="aprobadoPorLider" >Aprobado Por Lider</mat-checkbox>
         </section>
 
-        <section class="example-section">
+        <section class="example-section" *ngIf="cargoUsuarioLogueado == 'Gerente' || cargoUsuarioLogueado == 'Tesoreria' ">
           <mat-checkbox class="example-margin" formControlName="aprobadoPorTalentoHumano" >Aprobado Por Talento Humano</mat-checkbox>
         </section>
 
-        <section class="example-section">
+        <section class="example-section" *ngIf="cargoUsuarioLogueado == 'Gerente'">
           <mat-checkbox class="example-margin" formControlName="aprobadoPorGerencia" >Aprobado Por Gerencia</mat-checkbox>
         </section>
 

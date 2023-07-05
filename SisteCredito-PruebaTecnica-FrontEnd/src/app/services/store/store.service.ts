@@ -10,8 +10,8 @@ export class StoreService {
 
   private usuarioLogin:usuarios | null = {  //-> Creamos e inicializamos un objeto vacio
     id: '',
-    Nombres: '',
-    Apellidos: '',
+    nombres: '',
+    apellidos: '',
     rol: '',
     email: '',
     userName: '',

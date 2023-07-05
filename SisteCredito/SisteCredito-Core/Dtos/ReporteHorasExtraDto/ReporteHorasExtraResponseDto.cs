@@ -10,7 +10,7 @@ public class ReporteHorasExtraResponseDto
     public int HorasExtras { get; set; }
     public string Motivo { get; set; } = string.Empty;
     public string MotivoRechazo { get; set; } = string.Empty;
-    public EstadoReporteHora Estado { get; set; }
+    public int estadoId { get; set; } 
     public bool AprobadoPorLider { get; set; }
     public bool AprobadoPorTalentoHumano { get; set; }
     public bool AprobadoPorGerencia { get; set; }

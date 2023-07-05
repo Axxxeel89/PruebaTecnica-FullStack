@@ -12,3 +12,8 @@ export interface Estados{
   id: string,
   nombre: string
 }
+
+export interface DDLlideres{
+  id: string,
+  nombres: string
+}

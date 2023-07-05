@@ -1,1 +1,65 @@
-<p>register works!</p>
+<div class="register">
+  <div class="register__card">
+    <form [formGroup]="form" (ngSubmit)="register($event)" >
+
+      <div class="register__form">
+        <a href="#" class="register__title" ><img src="../../../../assets/img/logo-svg.svg" class="register__img" alt=""></a>
+      </div>
+
+      <div class="register__container">
+
+        <mat-form-field appearance="outline">
+          <mat-label>E-mail</mat-label>
+          <input matInput type="email" formControlName="email" class="register__inputs"  placeholder="Escribe tu E-Mail">
+          <mat-icon matSuffix>email</mat-icon>
+          <mat-hint *ngIf="emailField?.touched && emailField?.hasError('required')">El campo E-mail es necesario</mat-hint>
+          <mat-hint *ngIf="emailField?.touched && emailField?.hasError('email')">No ingresaste un E-mail valido</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput type="password" formControlName="password" class="register__inputs"  placeholder="Escribe una contraseña">
+          <mat-icon matSuffix>key</mat-icon>
+          <mat-hint *ngIf="passwordField?.touched && passwordField?.hasError('required')">La contraseña es necesaria</mat-hint>
+          <mat-hint *ngIf="passwordField?.touched && passwordField?.hasError('pattern')">La contraseña debe tener al menos una mayúscula, una minúscula, un número y un carácter especial</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Usuario</mat-label>
+          <input matInput type="text" formControlName="username" class="register__inputs"  placeholder="Escribe tu usuario">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-hint *ngIf="usernameField?.touched && usernameField?.hasError('required')">El campo Usuario es necesario</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Nombres</mat-label>
+          <input matInput type="text" formControlName="nombres" class="register__inputs"  placeholder="Escribe tu nombre">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-hint *ngIf="nombresField?.touched && nombresField?.hasError('required')">Los Nombres son requeridos</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Apellidos</mat-label>
+          <input matInput type="text" formControlName="apellidos" class="register__inputs"  placeholder="Escribe tu apellidos">
+          <mat-icon matSuffix>person</mat-icon>
+          <mat-hint *ngIf="apellidosField?.touched && apellidosField?.hasError('required')">Los Apellidos son requeridos</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Rol</mat-label>
+          <input matInput type="tel" formControlName="rol" class="register__inputs"  placeholder="Escribe tu telefono">
+          <mat-icon matSuffix>supervisor_account</mat-icon>
+          <mat-hint *ngIf="rolField?.touched && rolField?.hasError('required')">El campo Telefono es necesario</mat-hint>
+        </mat-form-field>
+
+      </div>
+
+      <h4 *ngIf="correoExiste" class="register__registerfail">El Email ingresado ya existe en la base de datos</h4>
+
+      <div class="register__buttons">
+        <button mat-raised-button type="submit" color="primary" > <mat-icon fontIcon="person_add"></mat-icon> Crear usuario</button>
+      </div>
+
+    </form>
+  </div>
+</div>

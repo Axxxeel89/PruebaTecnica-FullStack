@@ -1,0 +1,101 @@
+.register{
+  min-height: 80vh;
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &__card{
+    margin-top: 50px;
+    width: 80%;
+    max-width: 800px;
+    min-height: 440px;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    padding: 40px 20px 0 ;
+  }
+
+  &__title{
+    margin-bottom: 10px;
+  }
+
+  &__form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  &__container{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    justify-content: center;
+    column-gap: 20px;
+    row-gap: 20px;
+  }
+
+  &__img{
+    width: 200px;
+    filter: drop-shadow(2px 2px 3px rgba(3, 3, 3, 0.514));
+  }
+
+  &__buttons{
+    width: 100% ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  &__buttons button{
+    width: 300px ;
+  }
+
+  &__registerfail{
+    color: crimson;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+  }
+
+  mat-hint{
+    color: crimson;
+  }
+
+}
+
+
+
+@media screen and (max-width: 600px) {
+  .register{
+
+    &__card{
+      margin-top: 50px;
+      width: 94%;
+      max-width: 800px;
+      min-height: 440px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+      padding: 20px;
+    }
+
+    &__container{
+      display: grid;
+      width: 100%;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      justify-content: center;
+      column-gap: 10px;
+    }
+
+    mat-form-field{
+      margin-bottom: 25px;
+      font-size: 1rem;
+    }
+
+    mat-hint{
+      color: crimson;
+    }
+
+  }
+}

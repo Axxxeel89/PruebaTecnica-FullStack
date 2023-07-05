@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environments';
-import { generos, areas, Estados } from 'src/app/Models/MetodosUtilitarios';
+import { generos, areas, Estados, DDLlideres } from 'src/app/Models/MetodosUtilitarios';
 import { DDLEmpleados } from 'src/app/Models/empleados';
 
 @Injectable({
@@ -28,7 +28,11 @@ export class MetodosUtilService {
   }
 
   getEstados(){
-    return this.http.get<Estados[]>(`${this.API_URL}/DDLEstadoReporte`)
+    return this.http.get<Estados[]>(`${this.API_URL}/DDLEstadosReporte`)
+  }
+
+  getLideres(){
+    return this.http.get<DDLlideres[]>(`${this.API_URL}/DDLLideres`)
   }
 
 
