@@ -63,3 +63,12 @@ Reactividad: Se utilizó la programación reactiva para manejar los cambios en l
 Almacenamiento de datos del usuario: Se utilizó el localStorage para guardar los datos del usuario, lo que permite mantener la sesión activa y recordar la información del usuario entre sesiones.
 
 Aunque la aplicación no se completó al 100%, se lograron implementar algunas funcionalidades importantes, como la gestión de entidades, la utilización de interceptores y guards, y el almacenamiento de datos del usuario. Se reconoce que quedaron pendientes funcionalidades como la completa parametrización de las horas del personal y la finalización de los permisos de autorización de horas.
+
+
+
+Usuario para ingreso: 
+
+Usuario: john.rios@sisteCredito.com - Pwd: Siste2023*
+Usuario: vivian.ochoa@sisteCredito.com - Pwd: Siste2023*
+Usuario: santiago.rios@sisteCredito.com - Pwd: Siste2023*
+Usuario: paulina.david@sisteCredito.com - Pwd: Siste2023*
