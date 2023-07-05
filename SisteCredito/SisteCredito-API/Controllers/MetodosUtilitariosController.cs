@@ -22,13 +22,15 @@ namespace SisteCredito_API.Controllers
         private readonly IRepositoryEmpleados _empleRepo;
         private readonly IRepositoryEstado _estadoRepo;
         private readonly IRepositoryLideres _lideresRepo;
+        private readonly IRepositoryReporteHorasExtra _reporteHorasRepo;
 
         public MetodosUtilitariosController(
             IRepositoryGeneros generoRepo,
             IRepositoryAreas areasRepo,
             IRepositoryEmpleados empleRepo,
             IRepositoryEstado estadoRepo,
-            IRepositoryLideres lideresRepo
+            IRepositoryLideres lideresRepo,
+            IRepositoryReporteHorasExtra reporteHorasRepo
             )
         {
             _generoRepo = generoRepo;
@@ -36,6 +38,7 @@ namespace SisteCredito_API.Controllers
             _empleRepo = empleRepo;
             _estadoRepo = estadoRepo;
             _lideresRepo = lideresRepo;
+            _reporteHorasRepo = reporteHorasRepo;
         }
 
 
@@ -86,6 +89,17 @@ namespace SisteCredito_API.Controllers
             var selectLideres = await _lideresRepo.DDLLideres();
 
             return Ok(selectLideres);
+        }
+
+        [HttpGet("nombreUsuario:string")]
+        [AllowAnonymous]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+        public async Task<IActionResult> CalcularHorasExtraEmpleado (string nombreUsuario)
+        {
+            var listado = await _reporteHorasRepo.ObtenerTotalHorasExtras(nombreUsuario);
+            return Ok(listado);
         }
 
     }

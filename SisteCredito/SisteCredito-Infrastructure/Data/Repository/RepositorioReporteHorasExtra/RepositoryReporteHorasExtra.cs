@@ -24,10 +24,68 @@ public class RepositoryReporteHorasExtra : Repository<ReporteHorasExtra>, IRepos
 
     public async Task<IEnumerable<ReporteHorasExtra>> ObtenerConRelaciones(string nombre)
     {
-        IEnumerable<ReporteHorasExtra> ListarTabla = await _context.reporteHorasExtras
-                                                    .Where(c=> c.Empleado!.Nombres.ToLower() == nombre.ToLower())
-                                                    .Include(c => c.Empleado).Include(c => c.Estado).ToListAsync();
+        IEnumerable<ReporteHorasExtra> listarTabla = null;
 
-        return ListarTabla;
+        var empleado = await _context.Empleados                         
+                             .FirstOrDefaultAsync(l => l.Nombres.ToLower() == nombre.ToLower() && l.Cargo == "Empleado");
+
+        if (empleado != null)
+        {
+            listarTabla = await _context.reporteHorasExtras
+                                                    .Where(c=> c.Empleado!.Nombres.ToLower() == nombre.ToLower())
+                                                    .Include(c => c.Empleado)
+                                                    .Include(c => c.Estado)
+                                                    .ToListAsync();
+
+            return listarTabla;
+        }
+        
+             listarTabla = await _context.reporteHorasExtras
+                                                .Include(c => c.Empleado)
+                                                .Include(c => c.Estado)
+                                                .ToListAsync();
+
+        return listarTabla!;
+    }
+
+    public async Task<IEnumerable<ReporteHorasExtra>> ObtenerFiltradoLider(string nombre)
+    {
+        IEnumerable<ReporteHorasExtra> listarTabla = null;
+
+        var lider = await _context.Lideres                         
+                             .FirstOrDefaultAsync(l => l.Nombres.ToLower() == nombre.ToLower());
+
+        if (lider != null)
+        {
+            listarTabla = await _context.reporteHorasExtras
+                                                    .Where(c=> c.Empleado!.Cargo == "Empleado")
+                                                    .Include(c => c.Empleado)
+                                                    .Include(c => c.Estado)
+                                                    .ToListAsync();
+
+            return listarTabla;
+        }
+
+             listarTabla = await _context.reporteHorasExtras
+                                                .Include(c => c.Empleado)
+                                                .Include(c => c.Estado)
+                                                .ToListAsync();
+        return listarTabla;
+    }
+
+    public async Task<double> ObtenerTotalHorasExtras(string nombre)
+    {
+          var empleado = await _context.Empleados                         
+                             .FirstOrDefaultAsync(l => l.Nombres.ToLower() == nombre.ToLower() && l.Cargo == "Empleado");
+
+
+            double listarTabla =  _context.reporteHorasExtras
+                                                    .Where(c=> c.Empleado!.Nombres.ToLower() == nombre.ToLower() && c.Estado!.Nombre.Contains("Aprobado"))
+                                                    .Include(c => c.Empleado)
+                                                    .Include(c => c.Estado)
+                                                    .Sum( c => c.HorasExtras);
+
+            return listarTabla;
+        
     }
 }

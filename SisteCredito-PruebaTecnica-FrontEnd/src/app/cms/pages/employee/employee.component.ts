@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { EmpleadosService } from 'src/app/services/empleados/empleados.service';
 import { Router } from '@angular/router';
 import { Empleados } from 'src/app/Models/empleados';
 import Swal from 'sweetalert2'
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-employee',
@@ -11,9 +13,15 @@ import Swal from 'sweetalert2'
 })
 export class EmployeeComponent implements OnInit {
 
-  displayedColumns = ['Id', 'Nombres', 'Apellidos', 'FechaIngreso', 'FechaRetiro', 'Mail', 'Operaciones'];
+  displayedColumns = ['Id', 'Nombres', 'Apellidos', 'FechaIngreso', 'FechaRetiro', 'Mail', 'Cargo', 'Operaciones'];
 
   ListEmployee: Empleados[] = []
+
+  dataSource = new MatTableDataSource<Empleados>;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
+  cantidadElementosMostrados = 5;
+  filtroTexto = ''; // Criterio de filtro
 
   constructor(
     private empleadosService:EmpleadosService,
@@ -31,14 +39,22 @@ export class EmployeeComponent implements OnInit {
     this.empleadosService.getAllEmployee()
     .subscribe({ next: (response) => {
       this.ListEmployee = response;
+      this.dataSource = new MatTableDataSource<Empleados>(response);
+      this.dataSource.paginator = this.paginator;
+      this.paginator.length = response.length;
     }, error: (response) => {
       console.log(response)
     }
     })
   }
 
-  applyFilter(event: Event){
+  mostrarLista(cantidad:number){
+    this.cantidadElementosMostrados = cantidad;
+  }
 
+  applyFilter(event: Event){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   deleteEmployee(id:string){

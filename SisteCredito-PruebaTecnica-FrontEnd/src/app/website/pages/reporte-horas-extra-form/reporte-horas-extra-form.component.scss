@@ -9,7 +9,8 @@ $c-terciario: #c92027;
 
 .ReporteHoras{
   width: 90%;
-  height: 80vh;
+  min-height: 80vh;
+  height: auto;
   margin: 0 auto;
   margin-top: 10px;
 
@@ -32,7 +33,7 @@ $c-terciario: #c92027;
   }
 
   &__form{
-    margin: 50px 0;
+    margin: 70px 0;
     background-image: linear-gradient(to top, #e6e9f0 0%, #eef1f5 100%);
     padding: 20px;
     border-radius: 5px;
@@ -81,6 +82,12 @@ $c-terciario: #c92027;
     color: $c-secundario;
     font-weight: 500;
   }
+
+
+  .example-section{
+    margin-bottom: 30px;
+  }
+
 }
 
 .codigos{

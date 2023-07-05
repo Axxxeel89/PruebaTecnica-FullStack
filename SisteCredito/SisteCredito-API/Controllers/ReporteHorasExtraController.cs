@@ -67,6 +67,7 @@ namespace SisteCredito_API.Controllers
 
             return Ok(horaExtra);
         }
+        
 
 
         [HttpPost]

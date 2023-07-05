@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormGroup } from '@angular/forms'
 import { usuarios, usuarioRegisterDto } from 'src/app/Models/usuarios';
 import { AuthService } from 'src/app/services/auth/auth.service';
-
+import Swal  from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -42,7 +42,14 @@ export class RegisterComponent implements OnInit {
 
     this.authService.register(datos)
     .subscribe({ next: (response) => {
-          console.log(response)
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Se registro el usuario correctamente',
+        showConfirmButton: false,
+        timer: 2500
+      })
+      this.form.reset();
     }, error: (response) => {
       this.correoExiste = response.error.errores.mensaje;
   }})

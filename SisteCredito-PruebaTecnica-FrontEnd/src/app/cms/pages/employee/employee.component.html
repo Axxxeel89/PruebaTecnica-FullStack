@@ -11,7 +11,7 @@
 
 
   <div class="mat-elevation-z8">
-    <table mat-table [dataSource]="ListEmployee" matSort>
+    <table mat-table [dataSource]="dataSource" matSort>
 
       <ng-container matColumnDef="Id" >
         <th mat-header-cell *matHeaderCellDef mat-sort-header style="width:15px"> ID </th>
@@ -72,7 +72,10 @@
       </tr>
     </table>
 
-    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[5, 10, 20, 50]"
+        showFirstLastButtons
+        aria-label="Select page of periodic elements">
+    </mat-paginator>
   </div>
 
 

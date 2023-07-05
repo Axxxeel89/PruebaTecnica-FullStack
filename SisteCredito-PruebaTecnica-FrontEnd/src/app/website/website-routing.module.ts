@@ -5,7 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { ReporteHorasExtraComponent } from './pages/reporte-horas-extra/reporte-horas-extra.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { ContactComponent } from './pages/contact/contact.component';
-import { ReporteHorasExtraFormComponent } from './reporte-horas-extra-form/reporte-horas-extra-form/reporte-horas-extra-form.component';
+import {ReporteHorasExtraFormComponent} from './pages/reporte-horas-extra-form/reporte-horas-extra-form.component';
 import { AuthGuard } from '../guard/auth/auth.guard';
 
 

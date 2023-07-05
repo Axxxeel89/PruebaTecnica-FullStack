@@ -1,6 +1,6 @@
 .reporteHoras{
   width: 92%;
-  min-height: 80vh;
+  height: auto;
   margin: 0 auto;
 
   &__cardTitle{
@@ -16,10 +16,24 @@
     box-shadow: 2px 2px 6px rgba(128, 128, 128, 0.322);
   }
 
+  &__Horas{
+    text-align: right;
+    margin-right: 20px;
+    color: darkslateblue;
+  }
+
+  &__NHoras{
+    color: green;
+  }
+
   &__title{
     font-size: 2.5rem;
     font-weight: 600;
     color: rgb(1, 1, 167);
+  }
+
+  &__tabla{
+    margin-bottom: 100px;
   }
 
   table {

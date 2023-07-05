@@ -1,7 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ReporteHorasService } from 'src/app/services/reporteHoras/reporte-horas.service';
 import { ReporteHorasExtra } from 'src/app/Models/reporteHoraExtra';
 import Swal from 'sweetalert2'
+import { MetodosUtilService } from 'src/app/services/metodosUtil/metodos-util.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-reporte-horas-extra',
@@ -11,13 +14,24 @@ import Swal from 'sweetalert2'
 export class ReporteHorasExtraComponent implements OnInit {
 
   displayedColumns = ['Id','Empleado', 'Fecha', 'HorasExtras', 'Motivo', 'Estado', 'Operaciones'];
-  listReportOvertime : ReporteHorasExtra [] = []
+  listReportOvertime: ReporteHorasExtra[] = [];
+
+  dataSource = new MatTableDataSource<ReporteHorasExtra>;
+
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   datosUsuario: any = null;
   nombreUsuarioLogueado: string = '';
+  rolUsuario: string = '';
+
+  SumatoriaHora: any = 0;
+
+  cantidadElementosMostrados = 5;
+  filtroTexto = ''; // Criterio de filtro
 
   constructor(
-    private reporteHorasService:ReporteHorasService
+    private reporteHorasService:ReporteHorasService,
+    private metodosUtilService: MetodosUtilService
   ) { }
 
   ngOnInit(): void {
@@ -29,21 +43,39 @@ export class ReporteHorasExtraComponent implements OnInit {
       console.log(this.nombreUsuarioLogueado)
     }
     this.listReportOvertimes();
+    this.metodosUtilService.getSumatoriaHoras(this.nombreUsuarioLogueado)
+    .subscribe({
+      next: (response) => {
+        this.SumatoriaHora = response;
+      }, error: (response) => {
+        console.log(response)
+      }
+    })
 
   }
 
+
   listReportOvertimes(){
+    this.rolUsuario = this.datosUsuario.usuario.rol;
     this.reporteHorasService.getAllReportOvertime(this.nombreUsuarioLogueado)
     .subscribe({next: (response) => {
       this.listReportOvertime = response
+      this.dataSource = new MatTableDataSource<ReporteHorasExtra>(response);
+      this.dataSource.paginator = this.paginator;
+      this.paginator.length = response.length;
     }, error: (response) => {
       console.log(response)
     }
   })
   }
 
-  applyFilter(event: Event){
+  mostrarLista(cantidad:number){
+    this.cantidadElementosMostrados = cantidad;
+  }
 
+  applyFilter(event: Event){
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
   deleteReportOvertime(id:string){

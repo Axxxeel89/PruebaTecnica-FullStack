@@ -20,7 +20,7 @@ export class AuthService {
   }
 
   register(usuarioRegisterDto:usuarioRegisterDto){
-    return this.http.post<usuarios>(`${this.API_URL}/Register`, usuarioRegisterDto);
+    return this.http.post<usuarios>(`${this.API_URL}/Registrar`, usuarioRegisterDto);
   }
 
 

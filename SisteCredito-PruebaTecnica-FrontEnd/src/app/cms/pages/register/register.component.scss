@@ -12,8 +12,11 @@
     width: 80%;
     max-width: 800px;
     min-height: 440px;
+    height: auto;
+    padding-bottom: 20px;
     box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
-    padding: 40px 20px 0 ;
+    box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
+    padding: 40px 20px 20px ;
   }
 
   &__title{
@@ -76,6 +79,8 @@
       width: 94%;
       max-width: 800px;
       min-height: 440px;
+      height: auto;
+      padding-bottom: 20px;
       box-shadow: 2px 2px 8px rgba(0,0,0,0.5);
       padding: 20px;
     }

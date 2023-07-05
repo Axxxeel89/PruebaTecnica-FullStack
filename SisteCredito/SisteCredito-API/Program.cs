@@ -1,4 +1,5 @@
 using System.Text;
+using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
@@ -27,6 +28,7 @@ builder.Services.AddControllers(options => {
     var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
     options.Filters.Add(new AuthorizeFilter(policy));
 });
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -109,24 +111,24 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-using(var ambiente = app.Services.CreateScope())
-{
-    var services = ambiente.ServiceProvider;
+// using(var ambiente = app.Services.CreateScope())
+// {
+//     var services = ambiente.ServiceProvider;
 
-    try{
-        var userManager = services.GetRequiredService<UserManager<Usuarios>>();
-        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
-        var context = services.GetRequiredService<ApplicationDbContext>();
-        await context.Database.MigrateAsync();  //-->Dispara el evento para la creacion de las tablas en la DB
-        await LoadDataBase.InsertarData(context, userManager);
-        await LoadDataBase.CrearRoles(roleManager);
-        await LoadDataBase.InsertarData(context, userManager);
-        await LoadDataBase.AsignarRoles(userManager);
+//     try{
+//         var userManager = services.GetRequiredService<UserManager<Usuarios>>();
+//         var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+//         var context = services.GetRequiredService<ApplicationDbContext>();
+//         await context.Database.MigrateAsync();  //-->Dispara el evento para la creacion de las tablas en la DB
+//         await LoadDataBase.InsertarData(context, userManager);
+//         // await LoadDataBase.CrearRoles(roleManager);
+//         // await LoadDataBase.InsertarData(context, userManager);
+//         // await LoadDataBase.AsignarRoles(userManager);
 
-    }catch(Exception ex){
-        var logging =  services.GetRequiredService<ILogger<Program>>();
-        logging.LogError(ex, "Ocurrio un error en la migracion");
-    }
-}
+//     }catch(Exception ex){
+//         var logging =  services.GetRequiredService<ILogger<Program>>();
+//         logging.LogError(ex, "Ocurrio un error en la migracion");
+//     }
+// }
 
 app.Run();

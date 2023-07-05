@@ -35,5 +35,8 @@ export class MetodosUtilService {
     return this.http.get<DDLlideres[]>(`${this.API_URL}/DDLLideres`)
   }
 
+  getSumatoriaHoras(nombre:string){
+    return this.http.get<any>(`${this.API_URL}/nombreUsuario:string?nombreUsuario=${nombre}`)
+  }
 
 }
